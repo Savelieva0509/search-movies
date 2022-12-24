@@ -20,7 +20,7 @@ const Movies = () => {
     }
     try {
       setIsLoading(true);
-      searchMovie()
+      searchMovie(movieName)
         .finally(() => setIsLoading(false))
         .then(response => {
             setMoviesList(response.data.results);
