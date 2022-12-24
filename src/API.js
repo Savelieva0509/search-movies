@@ -1,9 +1,11 @@
 import axios from 'axios';
 const KEY = `946436ca4073577028dd0f99867a7b5f`
 
-export const getTrending=()=>{
+export const getTrending =()=>{
    const response= axios.get(`https://api.themoviedb.org/3/trending/all/day?api_key=${KEY}`)
-   return response
+    console.log(response);
+    return response
+    
 }
 export const searchMovie = (query)=>{
     const response= axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${KEY}&query=${query}&page=1`)
