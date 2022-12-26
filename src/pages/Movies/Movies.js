@@ -23,11 +23,10 @@ const Movies = () => {
       searchMovie(movieName)
         .finally(() => setIsLoading(false))
         .then(response => {
-            setMoviesList(response.data.results);
-            if (response.data.results.length === 0) {
-          toast('There is no results');
-        }
-          console.log(response);
+          setMoviesList(response.data.results);
+          if (response.data.results.length === 0) {
+            toast('There is no results');
+          }
         });
     } catch (error) {
       setError(error);
@@ -35,15 +34,14 @@ const Movies = () => {
     }
   }, [setError, movieName, query]);
 
-  const onFind = (query) => {
-      setSearchParams({ query });
-    console.log(query);
+  const onSearch = query => {
+    setSearchParams({ query });
     setQuery(query);
   };
   return (
     <div>
       {isLoading && <Loader />}
-      <MovieSearchBox onSubmit={onFind} />
+      <MovieSearchBox onSubmit={onSearch} />
       <MovieList movies={moviesList} />
     </div>
   );

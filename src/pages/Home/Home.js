@@ -15,7 +15,6 @@ function Home() {
         .finally(() => setIsLoading(false))
         .then(response => {
           setMovies(response.data.results);
-          console.log(response);
         });
     } catch (error) {
       setError(error);
