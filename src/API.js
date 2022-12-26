@@ -16,7 +16,7 @@ export const movieDetails=(id)=>{
     return response
    
 }
-export const movieCredits=(id)=>{
+export const movieCast=(id)=>{
     const response=axios.get(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=${KEY}&language=en-US`)
     return response
 }
