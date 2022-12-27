@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
-import { MovieList } from 'components/MovielList/MovieList';
+import MovieList from 'components/MovielList/MovieList';
 import { getTrending } from '../../API';
 import Loader from 'components/Loader/Loader';
+import css from "../Home/Home.module.css"
 
 function Home() {
   const [movies, setMovies] = useState([]);
@@ -22,8 +23,8 @@ function Home() {
     }
   }, [setError]);
   return (
-    <div>
-      <h1>Trending today</h1>
+    <div className={css.container}>
+      <h1 className={css.title}>Trending today</h1>
       {isLoading && <Loader />}
       {movies && <MovieList movies={movies} />}
     </div>

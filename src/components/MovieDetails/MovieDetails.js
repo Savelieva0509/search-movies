@@ -1,19 +1,19 @@
 import { useLocation, useParams } from 'react-router-dom';
-import { useEffect, useState, Suspense } from 'react';
-import { Outlet, Link } from 'react-router-dom';
+import { Suspense, useEffect, useState } from 'react';
+import { Outlet, Link, NavLink } from 'react-router-dom';
 import { movieDetails } from '../../API';
 import Loader from 'components/Loader/Loader';
 import img from 'components/default.png';
+import css from '../MovieDetails/MovieDetails.module.css';
 
-
-export const MovieDetails = () => {
+const MovieDetails = () => {
   const location = useLocation();
   const { movieId } = useParams();
   const [movie, setMovie] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [setError] = useState(null);
 
-   useEffect(() => {
+  useEffect(() => {
     try {
       setIsLoading(true);
       movieDetails(movieId)
@@ -26,38 +26,64 @@ export const MovieDetails = () => {
       setError(error);
       setIsLoading(false);
     }
-  }, [setError, movieId ]);
+  }, [setError, movieId]);
   const backLink = location.state?.from ?? '/movies';
 
-    return (
-    <>
+  return (
+    <div className={css.movie__container}>
       {movie && (
         <div>
-          <Link to={backLink}>Go back</Link>
+          <Link to={backLink} className={css.backlink}>
+            &#8592; Go back
+          </Link>
           {isLoading && <Loader />}
-          <img src={
-            movie.poster_path ? `https://image.tmdb.org/t/p/w300/${movie.poster_path}` : img
-          }
-          alt={movie.original_title} />
-          <h2> {movie.original_title}</h2>
-          <p>User score : {movie.vote_average}</p>
-          <h2>Overview</h2>
-          <p>{movie.overview}</p>
-          <ul>
-            {movie.genres.map(({ id, name }) => (
-              <li key={id}>{name}</li>
-            ))}
+          <div className={css.inform__container}>
+            <img
+              src={
+                movie.poster_path
+                  ? `https://image.tmdb.org/t/p/w300/${movie.poster_path}`
+                  : img
+              }
+              alt={movie.original_title}
+            />
+            <h2> {movie.original_title}</h2>
+            <p>User score : {movie.vote_average}</p>
+            <h2>Overview</h2>
+            <p>{movie.overview}</p>
+            <ul>
+              {movie.genres.map(({ id, name }) => (
+                <li key={id}>{name}</li>
+              ))}
             </ul>
-            <div>
-        <h2>Additional Information</h2>
-        <Link to={'cast'} state={{ from: backLink }}>Cast</Link>
-        <Link to={'reviews'} state={{ from: backLink }}>Reviews</Link>
-      </div>
+          </div>
+          <div>
+            <h2>Additional Information</h2>
+            <NavLink
+              to={'cast'}
+              state={{ from: backLink }}
+              className={({ isActive }) =>
+                !isActive ? css.link : css.link__active
+              }
+            >
+              Cast
+            </NavLink>
+            <NavLink
+              to={'reviews'}
+              state={{ from: backLink }}
+              className={({ isActive }) =>
+                !isActive ? css.link : css.link__active
+              }
+            >
+              Reviews
+            </NavLink>
+          </div>
           <Suspense fallback={<Loader />}>
-        <Outlet />
-      </Suspense>
+            <Outlet />
+          </Suspense>
         </div>
       )}
-    </>
+    </div>
   );
 };
+
+export default MovieDetails;

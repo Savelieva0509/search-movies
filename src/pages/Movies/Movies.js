@@ -4,8 +4,9 @@ import Loader from 'components/Loader/Loader';
 import 'react-toastify/dist/ReactToastify.css';
 import MovieSearchBox from 'components/MovieSearch/MovieSearchBox';
 import { searchMovie } from 'API';
-import { MovieList } from 'components/MovielList/MovieList';
+import MovieList from 'components/MovielList/MovieList';
 import { toast } from 'react-toastify';
+import css from "../Movies/Movies.module.css"
 
 const Movies = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -39,7 +40,7 @@ const Movies = () => {
     setQuery(query);
   };
   return (
-    <div>
+    <div className={css.container}>
       {isLoading && <Loader />}
       <MovieSearchBox onSubmit={onSearch} />
       <MovieList movies={moviesList} />

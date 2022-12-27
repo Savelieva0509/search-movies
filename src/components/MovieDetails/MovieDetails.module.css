@@ -1,0 +1,40 @@
+.backlink {
+  display: block;
+  text-decoration: none;
+  color: black;
+  font-weight: 700;
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.backlink:hover,
+.backlink:focus {
+  color: rgb(89, 89, 213);
+}
+
+.movie__container {
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.inform__container {
+  border-bottom: 1px solid light-gray;
+  box-shadow: rgba(89, 89, 213, 0.334) 0px 20px 25px;
+  padding: 20px;
+}
+
+.link__active {
+  padding: 8px 16px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 20px;
+  color: rgb(89, 89, 213);
+}
+
+.link {
+  padding: 8px 16px;
+  text-decoration: none;
+  color: black;
+  font-weight: 700;
+  font-size: 20px;
+}

@@ -1,0 +1,23 @@
+.header {
+    padding: 20px;
+    margin-bottom: 16px;
+    box-shadow: rgba(89, 89, 213, 0.334) 0px 20px 25px;
+}
+
+.active {
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 900;
+    font-size: 20px;
+    color:rgb(89, 89, 213);
+}
+
+.header__link {
+    padding: 8px 16px;
+
+    text-decoration: none;
+    color: black;
+    font-weight: 700;
+    font-size: 20px;
+}

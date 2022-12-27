@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { movieCast } from '../../API';
 import img from 'components/default.png';
 
-export const Cast = () => {
+const Cast = () => {
     const [cast, setCast] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const { movieId } = useParams();
@@ -57,3 +57,4 @@ export const Cast = () => {
     </>
   );
 }
+export default Cast;

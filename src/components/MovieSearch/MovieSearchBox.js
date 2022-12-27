@@ -2,6 +2,7 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import css from '../MovieSearch/MovieSearch.module.css';
 
 
 function MovieSearchBox({ onSubmit }) {
@@ -24,21 +25,22 @@ function MovieSearchBox({ onSubmit }) {
   };
 
   return (
-    <header >
-      <form onSubmit={handleSubmit}>
-        <button type="submit">
-          <span>Search</span>
-        </button>
+    <div className={css.form_container}>
+      <form onSubmit={handleSubmit} className={css.form}>
         <input
           type="text"
           name="imgName"
           placeholder="Search images and photos"
           value={movieName}
           onChange={handleChange}
+          className = {css.input}
         />
+        <button type="submit" className={css.button}>
+          <span>Search</span>
+        </button>
       </form>
       <ToastContainer autoClose={3000} />
-    </header>
+    </div>
   );
 }
 

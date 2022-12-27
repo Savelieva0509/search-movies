@@ -1,7 +1,8 @@
 import { Link, useLocation } from "react-router-dom";
 import PropTypes from 'prop-types';
+import css from '../MovielList/MovieList.module.css';
 
-export const MovieList = ({ movies }) => {
+const MovieList = ({ movies }) => {
   const location = useLocation()
   console.log(location.state);
 
@@ -12,6 +13,7 @@ export const MovieList = ({ movies }) => {
           to={`/movies/${id}`}
           key={id}
           state={{ from: location }}
+          className = {css.link}
         >
           {title}
         </Link>
@@ -23,3 +25,5 @@ export const MovieList = ({ movies }) => {
 MovieList.propTypes = {
   movies: PropTypes.array.isRequired,
 };
+
+export default MovieList;
