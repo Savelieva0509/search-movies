@@ -1,9 +1,9 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import css from '../MovielList/MovieList.module.css';
 
 const MovieList = ({ movies }) => {
-  const location = useLocation()
+  const location = useLocation();
   console.log(location.state);
 
   return (
@@ -13,7 +13,7 @@ const MovieList = ({ movies }) => {
           to={`/movies/${id}`}
           key={id}
           state={{ from: location }}
-          className = {css.link}
+          className={css.link}
         >
           {title}
         </Link>

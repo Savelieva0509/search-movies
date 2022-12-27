@@ -4,12 +4,12 @@ import { useParams } from 'react-router-dom';
 import { movieReviews } from '../../API';
 
 const Reviews = () => {
-    const [reviews, setReviews] = useState('');
-    const [isLoading, setIsLoading] = useState(false);
-    const { movieId } = useParams();
-    const [setError] = useState(null);
+  const [reviews, setReviews] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const { movieId } = useParams();
+  const [setError] = useState(null);
 
-   useEffect(() => {
+  useEffect(() => {
     try {
       setIsLoading(true);
       movieReviews(movieId)
@@ -21,12 +21,12 @@ const Reviews = () => {
       setError(error);
       setIsLoading(false);
     }
-   }, [setError, movieId]);
-    
-     if (!reviews) {
+  }, [setError, movieId]);
+
+  if (!reviews) {
     return;
-    }
-    
+  }
+
   return (
     <>
       {isLoading && <Loader />}

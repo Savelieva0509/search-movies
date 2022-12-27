@@ -4,7 +4,6 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import css from '../MovieSearch/MovieSearch.module.css';
 
-
 function MovieSearchBox({ onSubmit }) {
   const [movieName, setMovieName] = useState('');
 
@@ -33,7 +32,7 @@ function MovieSearchBox({ onSubmit }) {
           placeholder="Search images and photos"
           value={movieName}
           onChange={handleChange}
-          className = {css.input}
+          className={css.input}
         />
         <button type="submit" className={css.button}>
           <span>Search</span>
@@ -46,8 +45,6 @@ function MovieSearchBox({ onSubmit }) {
 
 export default MovieSearchBox;
 
-
 MovieSearchBox.propTypes = {
   onSubmit: PropTypes.func.isRequired,
 };
-

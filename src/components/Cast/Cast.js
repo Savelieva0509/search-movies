@@ -5,12 +5,12 @@ import { movieCast } from '../../API';
 import img from 'components/default.png';
 
 const Cast = () => {
-    const [cast, setCast] = useState(null);
-    const [isLoading, setIsLoading] = useState(false);
-    const { movieId } = useParams();
-    const [setError] = useState(null);
+  const [cast, setCast] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const { movieId } = useParams();
+  const [setError] = useState(null);
 
-   useEffect(() => {
+  useEffect(() => {
     try {
       setIsLoading(true);
       movieCast(movieId)
@@ -22,9 +22,9 @@ const Cast = () => {
       setError(error);
       setIsLoading(false);
     }
-   }, [setError, movieId]);
-    
-     if (!cast) {
+  }, [setError, movieId]);
+
+  if (!cast) {
     return;
   }
   return (
@@ -56,5 +56,5 @@ const Cast = () => {
       )}
     </>
   );
-}
+};
 export default Cast;

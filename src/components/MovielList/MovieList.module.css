@@ -1,13 +1,13 @@
 .link {
-    text-decoration: none;
-    color: black;
-    display: block;
+  text-decoration: none;
+  color: black;
+  display: block;
 }
 
 .link:hover {
-    color:rgb(89, 89, 213);;
+  color: rgb(89, 89, 213);
 }
 
 .link:not(:last-child) {
-    margin-bottom: 5px;
+  margin-bottom: 5px;
 }

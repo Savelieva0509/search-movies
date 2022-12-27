@@ -6,7 +6,7 @@ import MovieSearchBox from 'components/MovieSearch/MovieSearchBox';
 import { searchMovie } from 'API';
 import MovieList from 'components/MovielList/MovieList';
 import { toast } from 'react-toastify';
-import css from "../Movies/Movies.module.css"
+import css from '../Movies/Movies.module.css';
 
 const Movies = () => {
   const [isLoading, setIsLoading] = useState(false);
