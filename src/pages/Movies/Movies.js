@@ -42,7 +42,7 @@ const Movies = () => {
   return (
     <div className={css.container}>
       {isLoading && <Loader />}
-      <MovieSearchBox onSubmit={onSearch} />
+      <MovieSearchBox onSubmit={onSearch} name = {movieName } />
       <MovieList movies={moviesList} />
     </div>
   );

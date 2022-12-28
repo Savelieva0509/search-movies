@@ -4,8 +4,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import css from '../MovieSearch/MovieSearch.module.css';
 
-function MovieSearchBox({ onSubmit }) {
-  const [movieName, setMovieName] = useState('');
+function MovieSearchBox({ onSubmit, name }) {
+  const [movieName, setMovieName] = useState(name);
 
   const handleChange = event => {
     setMovieName(event.currentTarget.value.toLowerCase());
